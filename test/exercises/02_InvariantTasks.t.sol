@@ -69,7 +69,25 @@ contract VaultHandler is Test {
     ///       3) call vault.redeem(amount) as that user
     ///       4) do not forget approve — redeem needs no allowance, but deposit does
     ///      Hint: the two parameters have no names yet. Name them first.
-    function redeem(uint256, uint256) external {}
+    function redeem(uint256 userSeed, uint256 amount) external {
+        // Select one of the three users.
+        address user = users[bound(userSeed, 0, users.length - 1)];
+
+        // Skip users who have no stablecoins to redeem.
+        uint256 balance = stable.balanceOf(user);
+        if (balance == 0) return;
+
+        // Keep the redemption amount within the user's balance.
+        amount = bound(amount, 1, balance);
+
+        // Redeem as the selected user.
+        vm.startPrank(user);
+        vault.redeem(amount);
+        vm.stopPrank();
+
+        // Count successful redemptions.
+        ghost_redeems++;
+    }
 }
 
 contract InvariantTasksTest is Test {
@@ -102,13 +120,23 @@ contract InvariantTasksTest is Test {
     ///      fails, Foundry prints the counterexample call sequence — walk through that
     ///      sequence and you will see exactly how the invariant broke.
     function invariant_CollateralBacksSupply() public view {
-        assertEq(stable.totalSupply(), 0, "TODO Ex6.2");
+        // Collateral must cover the entire stablecoin supply.
+        assertGe(
+            vault.totalCollateral(),
+            stable.totalSupply(),
+            "Collateral must cover total supply"
+        );
     }
 
     /// TODO Ex6.3 — a second invariant: the vault itself never holds sUSD
     /// @dev Think about why this has to hold: the vault only ever mints sUSD to users and
     ///      should keep none for itself. If this one breaks, what does that mean?
     function invariant_VaultHoldsNoStablecoin() public view {
-        assertEq(stable.balanceOf(address(vault)), 1, "TODO Ex6.3");
+        // Deposit and redeem operations should leave no sUSD in the vault.
+        assertEq(
+            stable.balanceOf(address(vault)),
+            0,
+            "Vault should hold no stablecoins"
+        );
     }
 }
