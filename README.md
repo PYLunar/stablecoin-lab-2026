@@ -10,8 +10,7 @@
 ![alt text](picture/54ca15b5494f2a2ad004fc989b825253.png)
 
 4. Screenshot for Ex3:
-![alt text](picture/812b76369264483c3d55b35e692277ea.png)
-
+![alt text](picture/90edab377c9a3c6ce5bc35fc016a5b25.png)
 5. architecture diagram
 ![alt text](picture/8c60a0370610cce25321002134918981.jpg)
 
