@@ -1,19 +1,19 @@
 1. test passed screenshot:
 
-![alt text](/workspaces/stablecoin-lab-2026/picture/42ceb68d54be711a896743dc1307d9e2.png)
-![alt text](/workspaces/stablecoin-lab-2026/picture/812b76369264483c3d55b35e692277ea.png)
+![alt text](picture/42ceb68d54be711a896743dc1307d9e2.png)
+![alt text](picture/812b76369264483c3d55b35e692277ea.png)
 
 2. mint screenshot:
-![alt text](/workspaces/stablecoin-lab-2026/picture/18c097dd3b7d0966fb54e39ca0ed07c4.png)
+![alt text](picture/18c097dd3b7d0966fb54e39ca0ed07c4.png)
 
 3. redeem screenshot:
-![alt text](/workspaces/stablecoin-lab-2026/picture/54ca15b5494f2a2ad004fc989b825253.png)
+![alt text](picture/54ca15b5494f2a2ad004fc989b825253.png)
 
 4. Screenshot for Ex3:
-![alt text](/workspaces/stablecoin-lab-2026/picture/90edab377c9a3c6ce5bc35fc016a5b25.png)
+![alt text](picture/812b76369264483c3d55b35e692277ea.png)
 
 5. architecture diagram
-![alt text](/workspaces/stablecoin-lab-2026/picture/8c60a0370610cce25321002134918981.jpg)
+![alt text](picture/8c60a0370610cce25321002134918981.jpg)
 
 
 
